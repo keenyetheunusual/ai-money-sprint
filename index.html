@@ -13,7 +13,7 @@
  window.setFilter=function(w){ oldSetFilter(w); window.show('roadmap'); };
  window.openDay=function(n){ oldOpenDay(n); };
  document.querySelectorAll('#weeks .week').forEach((el,i)=>{el.onclick=function(e){e.preventDefault();e.stopPropagation();window.show('roadmap');window.setFilter(i+1);};});
- document.querySelectorAll('#daygrid .day').forEach(el=>{el.addEventListener('click',function(){const m=this.querySelector('.num')?.textContent.match(/\\d+/);if(m)window.openDay(Number(m[0]));});});
+ document.querySelectorAll('#daygrid .day').forEach(el=>{el.onclick=function(e){e.preventDefault();e.stopPropagation();const m=this.querySelector('.num')?.textContent.match(/\\d+/);if(m)window.openDay(Number(m[0]));};});
 })();
 <\/script>`;
   try{
