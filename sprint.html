@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b10">
+<title>Keenye — 30-Day AI Build & Money Sprint</title>
+<style>
+:root{--bg:#090b10;--panel:#11141b;--panel2:#171b24;--line:#282e3a;--text:#f4f6fa;--muted:#9ba4b5;--a:#a8ff60;--b:#63d8ff;--c:#ffb454;--d:#c792ff;--danger:#ff7b8b;--r:18px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#63d8ff18,transparent 32%),radial-gradient(circle at 10% 0%,#a8ff6014,transparent 30%),var(--bg);color:var(--text);font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;padding:22px 17px;border-right:1px solid var(--line);background:#090b10e8;backdrop-filter:blur(15px);overflow:auto}.brand{display:flex;gap:11px;align-items:center;margin-bottom:25px}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--a);color:#071006;font-weight:900}.brand h1{font-size:15px;margin:0}.brand p{font-size:11px;color:var(--muted);margin:2px 0}.nav{display:grid;gap:6px}.nav button{border:0;background:0;color:var(--muted);text-align:left;padding:10px 11px;border-radius:10px}.nav button:hover,.nav button.active{background:var(--panel2);color:var(--text)}.side{margin-top:25px;padding:14px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}.mini{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.bar{height:8px;background:#252b36;border-radius:99px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--a);width:0}.legend{display:grid;gap:7px;margin-top:18px}.leg{font-size:11px;color:var(--muted);display:flex;gap:7px;align-items:center}.dot{width:9px;height:9px;border-radius:50%}
+main{min-width:0}.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid var(--line);background:#090b10d9;backdrop-filter:blur(15px)}.top span{color:var(--muted);font-size:12px}.reset{background:0;border:1px solid var(--line);color:var(--muted);padding:7px 10px;border-radius:9px}.content{max-width:1180px;margin:auto;padding:34px 28px 70px}.hero{display:grid;grid-template-columns:1.55fr .8fr;gap:15px}.card{background:linear-gradient(180deg,#171b24f5,#11141bf5);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 18px 60px #00000045}.heroCopy{padding:29px}.eyebrow{color:var(--a);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase}h2{font-size:clamp(29px,4.3vw,46px);line-height:1.05;letter-spacing:-.035em;margin:9px 0 14px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:17px}.stat{padding:14px;border:1px solid var(--line);border-radius:13px}.stat b{display:block;font-size:24px}.stat span{font-size:11px;color:var(--muted)}
+.title{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:31px 0 11px}.title h3{margin:0;font-size:20px}.title p{margin:0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.day{padding:16px;position:relative;cursor:pointer;border-left:3px solid var(--line)}.day:hover{transform:translateY(-2px)}.day.done{opacity:.72}.num{color:var(--a);font-size:11px;font-weight:900}.tag{display:inline-block;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;padding:3px 7px;border-radius:6px;margin:7px 0}.day h4{margin:1px 0 6px;font-size:15px;line-height:1.25}.day p{margin:0;color:var(--muted);font-size:12px}.check{position:absolute;right:13px;top:13px;width:23px;height:23px;border:1px solid var(--line);border-radius:7px;display:grid;place-items:center;color:transparent}.done .check{background:var(--a);border-color:var(--a);color:#071006}
+.weekgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.week{padding:17px;cursor:pointer;border-left:3px solid var(--line)}.week h4{margin:0 0 4px}.week p{margin:0;color:var(--muted);font-size:12px}.week .bar{margin-top:12px}.filters{display:flex;gap:7px;flex-wrap:wrap}.filter{background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:7px 10px;border-radius:9px;font-size:11px}.filter.active{border-color:var(--a);color:var(--text)}
+section:not(#dashboard):not(#dayView){display:none}#dayView{display:none}.back{border:0;background:0;color:var(--a);padding:0;margin-bottom:14px}.head{padding:23px;margin-bottom:13px}.head h3{font-size:27px;line-height:1.1;margin:8px 0}.detail{display:grid;grid-template-columns:1.2fr .8fr;gap:13px}.box{padding:20px;margin-bottom:13px}.box h4{margin:0 0 9px}.box ul{padding-left:20px;margin:0}.box li{margin:7px 0}.resource{display:block;text-decoration:none;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:11px;margin:7px 0}.resource small{display:block;color:var(--muted)}textarea,input,select{background:#0c0f15;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px}textarea{width:100%;min-height:115px;resize:vertical}.full{width:100%;margin-top:8px;background:var(--a);color:#071006;border:0;padding:11px;border-radius:10px;font-weight:800}.complete{display:flex;gap:9px;align-items:center;border:1px solid var(--line);padding:11px;border-radius:11px;margin:11px 0}.complete input{width:18px;height:18px;accent-color:var(--a)}
+.list{display:grid;gap:10px}.project{padding:17px}.project h4{margin:4px 0}.project p{margin:0;color:var(--muted);font-size:13px}.rowcheck{margin-top:10px;display:flex;gap:8px;align-items:center}.money{padding:21px}.moneyrow{display:flex;gap:8px;flex-wrap:wrap}.moneyrow>*{flex:1;min-width:120px}.moneyrow button{background:var(--a);border:0;border-radius:10px;font-weight:800}.moneygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.moneyitem{padding:13px;border:1px solid var(--line);border-radius:11px}.moneyitem b{font-size:18px;display:block}.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:14px}
+@media(max-width:850px){.app{grid-template-columns:1fr}aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:13px}.nav{display:flex;overflow:auto}.nav button{white-space:nowrap}.side,.legend{display:none}.hero,.detail{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.weekgrid{grid-template-columns:1fr}}
+@media(max-width:560px){.content{padding:23px 16px 55px}.top{padding:13px 16px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.heroCopy{padding:22px}.moneygrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+ <div class="brand"><div class="logo">30</div><div><h1>AI Build & Money Sprint</h1><p>Learn → Build → Pitch → Get Paid</p></div></div>
+ <div class="nav">
+  <button class="active" data-s="dashboard">🏠 Dashboard</button>
+  <button data-s="roadmap">🗺️ 30-Day Roadmap</button>
+  <button data-s="projects">🔨 Portfolio</button>
+  <button data-s="experiments">🧪 Experiments</button>
+  <button data-s="money">💰 Money Lab</button>
+ </div>
+ <div class="side"><div class="mini">Overall progress</div><div class="bar"><i id="sidebar"></i></div><b id="pct">0%</b><div class="muted" style="font-size:11px" id="daysdone">0 / 30 days</div></div>
+ <div class="legend"><div class="mini">Month 1 focus</div><div class="leg"><span class="dot" style="background:var(--b)"></span>AI for Research + Data</div><div class="leg"><span class="dot" style="background:var(--c)"></span>Bots + Websites</div><div class="leg"><span class="dot" style="background:var(--d)"></span>SKILL.md / Agent Skills</div></div>
+</aside>
+<main>
+ <div class="top"><span>Month 1 only — no full agent engineering yet.</span><button class="reset" id="reset">Reset</button></div>
+ <div class="content">
+
+<section id="dashboard">
+ <div class="hero">
+  <div class="card heroCopy">
+   <div class="eyebrow">30 days • practical first</div>
+   <h2>Build useful AI skills without disappearing into theory.</h2>
+   <p class="muted">This month is intentionally narrow: use AI to accelerate research/data analysis, build simple business websites and bots, and learn enough SKILL.md / agent-skill design to create a real skill. Python, APIs, n8n, RAG, vector databases and building autonomous agents are deliberately deferred.</p>
+   <div style="margin-top:19px"><div class="mini">Progress</div><div class="bar"><i id="hero"></i></div><span class="muted" id="heroText">0 of 30 days complete</span></div>
+  </div>
+  <div class="card stats"><div class="stat"><b id="sd">0</b><span>days complete</span></div><div class="stat"><b id="sp">0 / 4</b><span>portfolio pieces</span></div><div class="stat"><b id="se">0</b><span>experiments logged</span></div><div class="stat"><b id="sm">$0</b><span>revenue tracked</span></div></div>
+ </div>
+ <div class="title"><div><h3>Continue</h3><p id="next"></p></div></div><div id="nextCard"></div>
+ <div class="title"><div><h3>Four-week sprint</h3><p>Click a week to see its days.</p></div></div><div class="weekgrid" id="weeks"></div>
+</section>
+
+<section id="roadmap">
+ <div class="title"><div><h3>30-Day Roadmap</h3><p>Every day has a concrete output. No agent-building phase.</p></div><div class="filters" id="filters"></div></div>
+ <div class="grid" id="daygrid"></div>
+</section>
+
+<section id="dayView">
+ <button class="back" id="back">← Back to roadmap</button><div id="detail"></div>
+</section>
+
+<section id="projects">
+ <div class="title"><div><h3>Portfolio Pieces</h3><p>Proof of ability, not certificates.</p></div></div><div class="list" id="projectList"></div>
+</section>
+
+<section id="experiments">
+ <div class="title"><div><h3>Experiment Log</h3><p>Capture results, failures and monetizable discoveries.</p></div></div>
+ <div class="card box"><h4>New experiment</h4><input id="et" style="width:100%;margin-bottom:8px" placeholder="e.g. AI teardown workflow v1"><textarea id="eb" placeholder="What I tried • result • what failed • what I'd change • could this become a service/product?"></textarea><button class="full" id="addExp">Save experiment</button></div>
+ <div class="list" id="expList"></div>
+</section>
+
+<section id="money">
+ <div class="title"><div><h3>Money Lab</h3><p>Track what actually converts. Don't wait until Day 30.</p></div></div>
+ <div class="card money"><div class="mini">Revenue tracked</div><div style="font-size:40px;font-weight:900;margin:3px 0 14px" id="total">$0</div>
+ <div class="moneyrow"><select id="source"><option value="Research">AI Research + Data</option><option value="Bots">Bots + Websites</option><option value="Skill">SKILL.md / Skills</option></select><input id="amount" type="number" min="0" placeholder="Amount"><button id="addMoney">Add</button></div>
+ <div class="moneygrid" id="moneygrid"></div></div>
+ <div class="title"><div><h3>Month 1 decision</h3><p>Which pillar produced the strongest signal?</p></div></div>
+ <div class="card box"><p class="muted">Use the numbers, replies, closes and quality of opportunities to decide what gets deeper investment in Month 2. A pillar does not need to win by revenue alone; strong demand or proof can also be a signal.</p></div>
+</section>
+
+ </div>
+</main>
+</div>
+<script>
+const weeks=[
+["Week 1","AI Research & Data Engine",1,7,"Build the actual research workflow you will use in paid work."],
+["Week 2","Bots, Websites & Skills",8,14,"Build practical business assets and learn SKILL.md without becoming an agent engineer."],
+["Week 3","Market & Deliver",15,21,"Put the skills in front of real people, pursue paid work and submit one skill."],
+["Week 4","Deliver, Measure & Double Down",22,30,"Deliver, collect proof, track money and decide what deserves Month 2."]
+];
+const P={research:["AI Research + Data","--b"],bots:["Bots + Websites","--c"],skill:["SKILL.md / Skills","--d"],sales:["Sales + Delivery","--a"],review:["Review","--muted"]};
+const days=[
+[1,1,"research","AI Reality: Context, Hallucinations & Limits","Context windows, hallucinations, knowledge gaps and why AI output must be verified.","Write 5 failure modes that could damage a research deliverable.","Draft your research offer: one clear deliverable, client outcome and 3 proof points from your existing work.","OpenAI Developer Docs"],
+[2,1,"research","Prompt Anatomy & Context Engineering","Roles, context, constraints, examples, output format and how to supply the right information.","Rewrite one weak prompt using all five elements.","Build v1 of your reusable AI research workflow: research question → sources → extraction → synthesis → verification.","OpenAI Prompting Guide"],
+[3,1,"research","Structured Outputs & JSON","Objects, arrays, fields and predictable schemas; why structured output makes repeatable research possible.","Turn messy research notes into a simple JSON schema by hand.","Create your standard protocol-teardown schema: architecture, mechanics, incentives, data, risks, trade-offs, verdict and sources.","OpenAI Developer Docs"],
+[4,1,"research","Research Workflow + Web Research","Question decomposition, source hierarchy, source comparison, citations and verification.","Break a real research question into 5 subquestions and rank sources.","Produce ONE real protocol teardown with your workflow. Publish it as proof of work.","OpenAI Academy"],
+[5,1,"research","Document Intelligence","Extract claims, entities, metrics, assumptions, risks and unanswered questions from long documents.","Give AI a long document and compare its extraction with your own spot-checks.","Create a repeatable whitepaper/docs extraction checklist and use it on a second document.","OpenAI Developer Docs"],
+[6,1,"research","AI-Assisted Data Analysis","Data inspection, cleaning checks, descriptive statistics, anomalies, comparisons and chart interpretation without Python.","Give AI a real dataset and identify structure/quality issues; manually verify several findings.","Add a real data section to your teardown: metrics, table/chart, interpretation and limitations.","Pandas Docs (reference)"],
+[7,1,"review","Week 1 Signal Check","No new theory. Review quality, speed, accuracy and usefulness of the workflow.","Audit your Day 4 teardown: what did AI get wrong or miss?","Improve v1 workflow and log the experiment. Draft your first warm outreach list (15–20 targets).","—"],
+
+[8,2,"bots","Business Problem Discovery + Google Business Profile","What local businesses actually need: discoverability, accurate information, reviews, lead capture and follow-up; avoid ranking folklore.","Audit 2 real local business profiles and identify 5 actionable gaps each.","Create a mock audit/report template you can use as a lead magnet or paid mini-audit.","Google Business Profile Help"],
+[9,2,"bots","Carrd: One-Page Website Fundamentals","Offer, headline, proof, CTA, trust and simple conversion structure.","Study 3 one-page sites and identify their conversion structure.","Build a complete one-page demo site for a fictional SME.","Carrd"],
+[10,2,"bots","Typebot: Conversation Logic","Nodes, questions, conditions, fallback paths, lead capture and handoff.","Map an FAQ/booking flow on paper first.","Build a working demo bot for the SME site.","Typebot Docs"],
+[11,2,"bots","Bot Safety + Quality Testing","Prompt injection, untrusted input, hallucination risk, fallback behavior and when a bot should hand off to a human.","Try 10 awkward/malicious/ambiguous inputs against your bot.","Patch failures and combine Carrd + Typebot + business audit into Portfolio Piece #2.","OWASP LLM Top 10"],
+[12,2,"skill","SKILL.md Anatomy: What a Skill Actually Is","Understand skills as reusable instructions/workflows for agents or AI systems; triggers, scope, inputs, steps, tools, outputs and constraints.","Deconstruct 3–5 real SKILL.md / agent-skill examples: what makes them usable?","Create a design brief for ONE skill you could realistically ship: problem, user, inputs, workflow, output, failure cases.","GitHub"],
+[13,2,"skill","Skill Design: From Workflow to SKILL.md","Instruction hierarchy, explicit inputs/outputs, deterministic steps, examples, guardrails and evaluation cases.","Turn one of your research workflows into a step-by-step skill specification.","Draft your SKILL.md v1. Do not worry about autonomous agents; focus on making the workflow executable and unambiguous.","GitHub"],
+[14,2,"review","Week 2 Review + Skill QA","No new theory. Compare your bot, website, research workflow and SKILL.md against real use cases.","Test each asset as if you were a stranger/client.","Choose ONE improvement for each pillar and finalize the target for Week 3.","—"],
+
+[15,3,"sales","Research Outreach Wave 1","—","Send 5–7 warm, personalized messages using your teardown as proof.","Log target, offer, date, response and next action.","—"],
+[16,3,"sales","Research Offer Refinement + Bot Portfolio #3","—","Follow up with warm targets and adjust your offer if objections repeat.","Build Portfolio Piece #3: a second SME website + bot package for a different niche.","—"],
+[17,3,"sales","SME Outreach Wave","—","Send 10 targeted SME messages using the demo package.","Offer a small, specific entry service rather than a vague 'AI service'.","—"],
+[18,3,"sales","Discovery + Negotiation","—","Run discovery calls/chats where possible; identify problem, scope, outcome, timeline and budget.","Create a one-page scope/pricing sheet for your two easiest offers.","—"],
+[19,3,"sales","First Delivery Sprint","—","If a client closed, begin delivery. If not, run a second outreach batch and offer a tightly scoped pilot.","Turn your first paid/pilot work into a repeatable delivery checklist.","—"],
+[20,3,"skill","SKILL.md Build, Test & Submit","Understand how to test a skill against expected inputs, outputs and failure cases.","Run your skill through at least 3 test cases and revise it.","Submit ONE real SKILL.md / agent-skill bounty entry or publishable skill. Record what you learned.","Superteam Earn"],
+[21,3,"review","Week 3 Review","—","Calculate response rate, conversations, proposals, closes and delivery progress.","Choose the strongest commercial signal and change next week's emphasis accordingly.","—"],
+
+[22,4,"sales","Deliver & Collect Proof","—","Deliver outstanding research/bot work with clear scope control.","Request a testimonial, permission to show the work and a short result statement.","—"],
+[23,4,"sales","Round 2 Outreach","—","Use your new proof in another warm/cold outreach wave.","Package the winning service into a simple repeatable offer.","—"],
+[24,4,"sales","Close + Deliver","—","Push active opportunities toward a decision; continue delivery for closed work.","Document your delivery process so the next client takes less time.","—"],
+[25,4,"sales","Double Down on Signal","—","Review Money Lab plus non-money signals: demand, response rate, ease of delivery, proof quality.","Put the majority of today's effort into the strongest pillar.","—"],
+[26,4,"sales","Second Client Push","—","Close a second client/pilot where possible; follow up with every qualified lead.","Begin the next deliverable or productize the strongest asset.","—"],
+[27,4,"sales","Portfolio & Proof Day","—","Finish outstanding work and clean your portfolio.","Create a simple case study for your strongest research project and your strongest bot/site package.","—"],
+[28,4,"sales","Payment + Pipeline Cleanup","—","Confirm invoices/payments and follow up on every open proposal.","Create a 30-day post-holiday lead pipeline with warm, cold and referral targets.","—"],
+[29,4,"review","Tally & Decide","—","Record revenue by pillar, outreach numbers, conversions, testimonials and useful failures.","Write a one-page 'Month 1 signal report': what worked, what didn't, what should be deeper.","—"],
+[30,4,"review","Demo Day + Month 2 Bridge","—","Review your full portfolio: research workflow/teardown, SME packages and SKILL.md submission.","Lock Month 2 priorities. Only now decide whether to add Python, APIs, automation, RAG, agents or deeper engineering.","—"]
+];
+const resources={
+"OpenAI Developer Docs":"https://platform.openai.com/docs/","OpenAI Prompting Guide":"https://platform.openai.com/docs/guides/prompt-engineering","OpenAI Academy":"https://academy.openai.com/","Pandas Docs (reference)":"https://pandas.pydata.org/docs/","Google Business Profile Help":"https://support.google.com/business/","Carrd":"https://carrd.co/","Typebot Docs":"https://docs.typebot.io/","OWASP LLM Top 10":"https://owasp.org/www-project-top-10-for-large-language-model-applications/","GitHub":"https://github.com/","Superteam Earn":"https://earn.superteam.fun/","—":null};
+const projects=[
+["p1","Portfolio #1 — AI Research Teardown","A real protocol teardown using your AI research workflow plus a verified data section.","research"],
+["p2","Portfolio #2 — SME Website + Bot Package A","Google Business Profile audit + Carrd one-pager + Typebot demo for one niche.","bots"],
+["p3","Portfolio #3 — SME Website + Bot Package B","A second niche proving the workflow is repeatable, not a one-off.","bots"],
+["p4","Portfolio #4 — SKILL.md Submission","A tested, documented skill built from one of your real research workflows.","skill"]
+];
+let state=JSON.parse(localStorage.getItem("keenyeAI30v2")||'{"done":[],"projects":[],"experiments":[],"money":{"Research":0,"Bots":0,"Skill":0},"notes":{}}');
+let filter=0;
+function save(){localStorage.setItem("keenyeAI30v2",JSON.stringify(state));render()}
+function pct(){return Math.round(state.done.length/30*100)}
+function tag(k){let x=P[k];return `<span class="tag" style="background:color-mix(in srgb,var(${x[1]}) 16%,transparent);color:var(${x[1]})">${x[0]}</span>`}
+function card(d){let done=state.done.includes(d[0]);return `<div class="card day ${done?"done":""}" style="border-left-color:var(${P[d[2]][1]})" onclick="openDay(${d[0]})"><span class="num">DAY ${d[0]}</span><span class="check">✓</span>${tag(d[2])}<h4>${d[3]}</h4><p>${d[6]}</p></div>`}
+function render(){
+ let p=pct();document.getElementById("sidebar").style.width=p+"%";document.getElementById("hero").style.width=p+"%";document.getElementById("pct").textContent=p+"%";document.getElementById("daysdone").textContent=`${state.done.length} / 30 days`;document.getElementById("heroText").textContent=`${state.done.length} of 30 days complete`;
+ document.getElementById("sd").textContent=state.done.length;document.getElementById("sp").textContent=`${state.projects.length} / 4`;document.getElementById("se").textContent=state.experiments.length;
+ let total=Object.values(state.money).reduce((a,b)=>a+Number(b||0),0);document.getElementById("sm").textContent="$"+total.toLocaleString();
+ let n=days.find(d=>!state.done.includes(d[0]))||days[29];document.getElementById("next").textContent=state.done.length===30?"Sprint complete — review Month 2 bridge.":`Day ${n[0]} — ${n[3]}`;document.getElementById("nextCard").innerHTML=card(n);
+ document.getElementById("weeks").innerHTML=weeks.map(w=>`<div class="card week" onclick="show('roadmap');setFilter(${w[2]})"><h4>${w[0]} — ${w[1]}</h4><p>${w[4]}</p><div class="bar"><i style="width:${weekPct(w[2])}%"></i></div><span class="muted" style="font-size:11px">${weekPct(w[2])}% complete</span></div>`).join("");
+ renderDays();renderProjects();renderExperiments();renderMoney();
+}
+function weekPct(w){let a=days.filter(d=>d[1]===w);return Math.round(a.filter(d=>state.done.includes(d[0])).length/a.length*100)}
+function renderDays(){document.getElementById("daygrid").innerHTML=days.filter(d=>!filter||d[1]===filter).map(card).join("");document.getElementById("filters").innerHTML=`<button class="filter ${!filter?"active":""}" onclick="setFilter(0)">All</button>`+weeks.map(w=>`<button class="filter ${filter===w[2]?"active":""}" onclick="setFilter(${w[2]})">${w[0]}</button>`).join("")}
+function setFilter(w){filter=w;renderDays()}
+function openDay(n){
+ let d=days.find(x=>x[0]===n),done=state.done.includes(n),w=weeks.find(x=>x[2]===d[1]),res=resources[d[7]];
+ document.getElementById("detail").innerHTML=`<div class="card head" style="border-left:3px solid var(${P[d[2]][1]})">${tag(d[2])}<span class="muted" style="font-size:11px">${w[0]} • Days ${w[2]}–${w[3]}</span><h3>Day ${d[0]} — ${d[3]}</h3></div>
+ <div class="detail"><div>
+ <div class="card box"><h4>🧠 Learn</h4><p>${d[4]==="—"?"No new theory today.":d[4]}</p></div>
+ <div class="card box"><h4>🎯 Task</h4><p>${d[5]}</p></div>
+ <div class="card box"><h4>🔨 Build / Output</h4><p>${d[6]}</p></div></div>
+ <div><div class="card box"><h4>📚 Resource</h4>${res?`<a class="resource" target="_blank" rel="noopener" href="${res}">${d[7]}<small>Open ↗</small></a>`:"<p class='muted'>No new resource — application/review day.</p>"}
+ <div class="complete"><input id="dc" type="checkbox" ${done?"checked":""} onchange="toggleDay(${n},this.checked)"><label for="dc"><b>Mark Day ${n} complete</b><br><span class="muted" style="font-size:11px">Only check after doing the work.</span></label></div>
+ <textarea id="note" placeholder="Reflection / evidence / lessons...">${state.notes[n]||""}</textarea><button class="full" onclick="note(${n})">Save reflection</button></div></div></div>`;
+ show("dayView");
+}
+function toggleDay(n,c){if(c&&!state.done.includes(n))state.done.push(n);if(!c)state.done=state.done.filter(x=>x!==n);save();openDay(n)}
+function note(n){state.notes[n]=document.getElementById("note").value;save();openDay(n)}
+function renderProjects(){document.getElementById("projectList").innerHTML=projects.map(p=>{let done=state.projects.includes(p[0]);return `<div class="card project" style="border-left:3px solid var(${P[p[3]][1]})">${tag(p[3])}<h4>${p[1]}</h4><p>${p[2]}</p><div class="rowcheck"><input type="checkbox" ${done?"checked":""} onchange="toggleProject('${p[0]}',this.checked)"><span>Mark complete</span></div></div>`}).join("")}
+function toggleProject(id,c){if(c&&!state.projects.includes(id))state.projects.push(id);if(!c)state.projects=state.projects.filter(x=>x!==id);save()}
+function renderExperiments(){document.getElementById("expList").innerHTML=state.experiments.length?state.experiments.slice().reverse().map(e=>`<div class="card project"><span class="muted" style="font-size:10px">${e.date}</span><h4>${esc(e.title)}</h4><p>${esc(e.body).replace(/\n/g,"<br>")}</p></div>`).join(""):`<div class="empty">No experiments logged yet. Your Day 4 teardown is a good first one.</div>`}
+function renderMoney(){let b=state.money,total=Object.values(b).reduce((a,x)=>a+Number(x||0),0);document.getElementById("total").textContent="$"+total.toLocaleString();document.getElementById("moneygrid").innerHTML=Object.entries(b).map(([k,v])=>`<div class="moneyitem"><b>$${Number(v||0).toLocaleString()}</b><span class="muted">${k==="Research"?"AI Research + Data":k==="Bots"?"Bots + Websites":"SKILL.md / Skills"}</span></div>`).join("")}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function show(id){document.querySelectorAll(".content>section").forEach(s=>s.style.display="none");document.getElementById(id).style.display="block";document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));let b=document.querySelector(`[data-s="${id}"]`);if(b)b.classList.add("active");scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>show(b.dataset.s));document.getElementById("back").onclick=()=>show("roadmap");
+document.getElementById("addExp").onclick=()=>{let t=et.value.trim(),b=eb.value.trim();if(!t||!b)return alert("Add an experiment name and what happened.");state.experiments.push({title:t,body:b,date:new Date().toLocaleDateString()});et.value="";eb.value="";save()};
+document.getElementById("addMoney").onclick=()=>{let x=Number(amount.value),s=source.value;if(x>0){state.money[s]+=x;amount.value="";save()}};
+document.getElementById("reset").onclick=()=>{if(confirm("Reset all Month 1 progress, notes, experiments and money?")){localStorage.removeItem("keenyeAI30v2");state={done:[],projects:[],experiments:[],money:{Research:0,Bots:0,Skill:0},notes:{}};render()}};
+render();
+</script>
+</body>
+</html>
